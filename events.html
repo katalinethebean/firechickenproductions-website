@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Events — Fire Chicken Productions</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .events-feed {
+      max-width: 720px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 3rem;
+    }
+
+    .event-post {
+      background: var(--white);
+      border: 1.5px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+    }
+
+    .event-header {
+      padding: 1.5rem 1.75rem 1rem;
+      border-bottom: 1.5px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .event-date-block {
+      background: var(--rust);
+      color: var(--cream);
+      border-radius: 10px;
+      padding: 0.5rem 0.85rem;
+      text-align: center;
+      flex-shrink: 0;
+      min-width: 56px;
+    }
+
+    .event-date-block .month {
+      font-family: var(--font-display);
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      display: block;
+    }
+
+    .event-date-block .day {
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      line-height: 1;
+      display: block;
+    }
+
+    .event-meta { flex: 1; }
+
+    .event-tag {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      background: var(--rust-pale);
+      color: var(--rust);
+      padding: 0.15rem 0.55rem;
+      border-radius: 4px;
+      margin-bottom: 0.35rem;
+    }
+
+    .event-title {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      color: var(--brown);
+      line-height: 1.2;
+    }
+
+    /* Photo layouts */
+    .event-photos-single img {
+      width: 100%;
+      max-height: 420px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .event-photos-grid {
+      display: grid;
+      gap: 3px;
+    }
+
+    .event-photos-grid.cols-2 {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .event-photos-grid.cols-3 {
+      grid-template-columns: 2fr 1fr;
+      grid-template-rows: 1fr 1fr;
+    }
+
+    .event-photos-grid.cols-3 img:first-child {
+      grid-row: span 2;
+    }
+
+    .event-photos-grid img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .event-photos-grid.cols-2 img {
+      height: 280px;
+    }
+
+    .event-body {
+      padding: 1.5rem 1.75rem;
+    }
+
+    .event-body p {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.75;
+      margin-bottom: 0.75rem;
+    }
+
+    .event-body p:last-child { margin-bottom: 0; }
+
+    .event-footer {
+      padding: 1rem 1.75rem;
+      border-top: 1.5px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+
+    .event-footer span { color: var(--brown-light); font-weight: 600; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo"><img src="logo.png" alt="Fire Chicken Productions logo"><span class="nav-logo-text"> Fire Chicken <span>Productions</span></span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="donations.html">Donations</a></li>
+    <li><a href="products.html">Products</a></li>
+    <li><a href="events.html" class="active">Events</a></li>
+    <li><a href="team.html">Team</a></li>
+  </ul>
+  <div style="display:flex;justify-content:flex-end;align-items:center;min-width:0;">
+    <a href="https://www.instagram.com/firechicken.productions" target="_blank" style="display:flex;align-items:center;color:var(--cream);opacity:0.85;transition:opacity 0.15s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.85">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+    </a>
+  </div>
+</nav>
+
+<section class="hero" style="padding: 4rem 2rem 3.5rem;">
+  <div class="hero-inner">
+    <div class="hero-badge">Latest News</div>
+    <h1>Events &amp; <em>updates.</em></h1>
+  </div>
+</section>
+
+<section style="background: var(--white);">
+
+    <div class="events-feed">
+
+      <!-- EVENT POST 1 — duplicate this block to add more events -->
+      <article class="event-post">
+        <div class="event-header">
+          <div class="event-date-block">
+            <span class="month">Feb</span>
+            <span class="day">7</span>
+          </div>
+          <div class="event-meta">
+            <span class="event-tag">Pop-up</span>
+            <div class="event-title">CIS School Fair 2025</div>
+          </div>
+        </div>
+
+        <!-- Single photo: use this block if you have 1 photo -->
+        <div class="event-photos-single">
+          <img src="event1-photo1.jpg" alt="Spring 2025 launch" />
+        </div>
+
+        <!-- 2 photos: swap the block above for this one
+        <div class="event-photos-grid cols-2">
+          <img src="event1-photo1.jpg" alt="" />
+          <img src="event1-photo2.jpg" alt="" />
+        </div>
+        -->
+
+        <!-- 3 photos: swap the block above for this one
+        <div class="event-photos-grid cols-3">
+          <img src="event1-photo1.jpg" alt="" />
+          <img src="event1-photo2.jpg" alt="" />
+          <img src="event1-photo3.jpg" alt="" />
+        </div>
+        -->
+
+        <div class="event-body">
+          <p>We brought Fire Chicken to the school fair, and the energy was unmatched. Instead of a traditional food stall, we set up shop with our teacher-featured gear, and the response from both students and faculty was incredible.</p>
+        </div>
+        <div class="event-footer">
+          Posted by <span>Fire Chicken Productions</span> · 7 February 2026
+        </div>
+      </article>
+
+      <article class="event-post">
+        <div class="event-header">
+          <div class="event-date-block">
+            <span class="month">December</span>
+            <span class="day">14</span>
+          </div>
+          <div class="event-meta">
+            <span class="event-tag">Donation</span>
+            <div class="event-title">Donation handoff to Hong Kong Tai Po Fire Relief!</div>
+          </div>
+        </div>
+
+        <div class="event-photos-single">
+          <img src="event2-photo1.jpg" alt="Donation handoff" />
+        </div>
+
+        <div class="event-body">
+          <p>When a devastating fire broke out in the Tai Po district, leaving families displaced and local residents in urgent need of emergency housing and basic supplies, we knew Fire Chicken couldn't just stand on the sidelines. We quickly donated our all revenues to Save The Children, raising crucial funds and resources for the affected families.</p>
+        </div>
+        <div class="event-footer">
+          Posted by <span>Fire Chicken Productions</span> · 14 December 2025
+        </div>
+      </article>
+
+      <article class="event-post">
+        <div class="event-header">
+          <div class="event-date-block">
+            <span class="month">November</span>
+            <span class="day">15</span>
+          </div>
+          <div class="event-meta">
+            <span class="event-tag">Donation</span>
+            <div class="event-title">First donation handoff to Les Cajoutiers in Senegal</div>
+          </div>
+        </div>
+
+        <div class="event-photos-single">
+          <img src="event3-photo1.jpg" alt="Donation handoff" />
+        </div>
+
+        <div class="event-body">
+          <p>We are incredibly proud to announce that Fire Chicken has officially raised HKD $1,000 to support vital educational projects in Senegal! Our team actually traveled to Senegal to meet, play, and interact with the kids firsthand. To see our business turn into a real financial contribution after connecting with the community in person is incredibly rewarding. Thank you to everyone who repped our products!</p>
+        </div>
+        <div class="event-footer">
+          Posted by <span>Fire Chicken Productions</span> · 15 November 2025
+        </div>
+      </article>
+
+      <article class="event-post">
+        <div class="event-header">
+          <div class="event-date-block">
+            <span class="month">October</span>
+            <span class="day">9</span>
+          </div>
+          <div class="event-meta">
+            <span class="event-tag">Campus Event</span>
+            <div class="event-title">First Physics Test!</div>
+          </div>
+        </div>
+
+        <div class="event-photos-single">
+          <img src="event4-photo1.jpg" alt="Donation handoff" />
+        </div>
+
+        <div class="event-body">
+          <p>We took school spirit to a whole new level for our first physics test by getting the entire class to coordinate and wear our physics teacher merch. Fire Chicken started in this exact classroom, and seeing it turn into a full-blown class takeover felt incredible accomplishing.</p>
+        </div>
+        <div class="event-footer">
+          Posted by <span>Fire Chicken Productions</span> · 9 October 2025
+        </div>
+      </article>
+
+      <!-- ADD MORE EVENTS ABOVE THIS LINE -->
+
+    </div>
+  </div>
+</section>
+
+<div class="cta-band">
+  <div class="section-inner text-center">
+    <h2>Want to be there next time?</h2>
+    <p>Follow us on Instagram @firechicken.productions for more!</p>
+    <div class="cta-buttons">
+      <a href="https://www.instagram.com/firechicken.productions" class="btn btn-primary">Follow on Instagram</a>
+      <a href="products.html" class="btn btn-secondary">Shop the collection</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <img src="logo-text.png" alt="Fire Chicken Productions" style="max-width: 180px; display: block;">
+    </div>
+    <div class="footer-col">
+      <h4>Navigate</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="team.html">Meet the Team</a></li>
+        <li><a href="donations.html">Donations</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Find us</h4>
+      <ul>
+        <li><a href="https://www.instagram.com/firechicken.productions">Instagram</a></li>
+        <li><a href="mailto:firechicken.productions9@gmail.com">Email us</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© Fire Chicken Productions. 100% profits donated.</span>
+    <span>EST.2025</span>
+  </div>
+</footer>
+
+</body>
+</html>

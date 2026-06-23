@@ -1,0 +1,21 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__visualize__read_me",
+      "mcp__visualize__show_widget",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:8080)",
+      "Bash(sed -i '' 's|<li><a href=\"team.html\">Meet the Team</a></li>|<li><a href=\"team.html\">Team</a></li>|g' '/Users/katherinedai/Desktop/CIS/Fire Chicken Productions/index.html' '/Users/katherinedai/Desktop/CIS/Fire Chicken Productions/mission.html' '/Users/katherinedai/Desktop/CIS/Fire Chicken Productions/products.html' '/Users/katherinedai/Desktop/CIS/Fire Chicken Productions/customize.html' '/Users/katherinedai/Desktop/CIS/Fire Chicken Productions/events.html')",
+      "Bash(sed -i '' 's|<li><a href=\"team.html\" class=\"active\">Meet the Team</a></li>|<li><a href=\"team.html\" class=\"active\">Team</a></li>|g' '/Users/katherinedai/Desktop/CIS/Fire Chicken Productions/team.html')",
+      "Bash(curl -sL \"https://docs.google.com/spreadsheets/d/e/2PACX-1vRR7L7ifVTf8FroH8RkAlPMphWdVuj57J_mKJcxmmiEcN1z3_4IAOPuF1JY_ZyjMmW8T-gNBw3l1UOP/pub?gid=688186761&single=true&output=csv\")",
+      "Bash(grep -iv \"email\\\\|#$\\\\|Email\")",
+      "Bash(curl -sL \"https://docs.google.com/spreadsheets/d/e/2PACX-1vRm3FtnhP9kbeSga2RX_1DrGpbOoob7BAKmSFx93cRmZ5ouVBUyQKNZS8FoBe_OUhxEm_5DlLidXBOn/pub?gid=688186761&single=true&output=csv\")",
+      "Bash(python3)",
+      "mcp__Claude_Preview__preview_start",
+      "mcp__Claude_in_Chrome__navigate",
+      "mcp__Claude_in_Chrome__computer",
+      "Bash(git init *)",
+      "Bash(git add *)",
+      "Bash(git commit *)"
+    ]
+  }
+}
