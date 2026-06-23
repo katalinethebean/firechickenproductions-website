@@ -225,9 +225,7 @@
         return m ? m[0] : null;
       }).filter(Boolean));
       document.getElementById('stat-teachers').textContent = teachers.size;
-      // Science Folder has 8 designs but 1 card — count it as 8
-      const folderCount = filtered.filter(n => n.textContent.trim().includes('Folder')).length;
-      document.getElementById('stat-products').textContent = filtered.length + (folderCount * 7);
+      document.getElementById('stat-products').textContent = filtered.length;
     });
 </script>
 
