@@ -199,7 +199,7 @@ nav.scrolled {
 
 .hero-display {
   font-family: var(--font-display);
-  font-size: clamp(2.8rem, 7.5vw, 6rem);
+  font-size: clamp(2.2rem, 5.5vw, 4.5rem);
   line-height: 1.0;
   letter-spacing: 0.01em;
   text-transform: uppercase;
@@ -1088,7 +1088,7 @@ section { padding: 4.5rem 2rem; }
 /* ─── 3D MASCOT HERO (products page) ─── */
 .mascot-hero {
   background: var(--text);
-  min-height: 100dvh;
+  min-height: 85dvh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1119,6 +1119,11 @@ section { padding: 4.5rem 2rem; }
   height: min(90vh, 800px);
   margin-bottom: 0;
   cursor: grab;
+}
+
+.mascot-hero .mascot-canvas-wrap {
+  width: min(65vh, 600px);
+  height: min(65vh, 600px);
 }
 .mascot-canvas-wrap:active { cursor: grabbing; }
 
@@ -1185,9 +1190,9 @@ section { padding: 4.5rem 2rem; }
 }
 
 .collection-tab {
-  padding: 0.8rem 2.4rem;
+  padding: 0.55rem 1.8rem;
   font-family: var(--font-display);
-  font-size: 1rem;
+  font-size: 0.85rem;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   font-weight: 700;
@@ -1209,6 +1214,24 @@ section { padding: 4.5rem 2rem; }
 
 .collection-tab + .collection-tab {
   border-left: 2px solid var(--rust);
+}
+
+.mascot-hero .collection-tabs {
+  border-color: var(--cream);
+}
+.mascot-hero .collection-tab {
+  background: transparent;
+  color: var(--cream);
+}
+.mascot-hero .collection-tab:hover:not(.active) {
+  background: rgba(253,232,156,0.12);
+}
+.mascot-hero .collection-tab.active {
+  background: var(--cream);
+  color: var(--brown);
+}
+.mascot-hero .collection-tab + .collection-tab {
+  border-left-color: var(--cream);
 }
 
 /* ─── STEPS ─── */
