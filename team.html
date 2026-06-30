@@ -6,150 +6,6 @@
   <title>Meet the Team — Fire Chicken Productions</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" href="logo.png" type="image/png">
-  <style>
-    .team-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-      gap: 1.5rem;
-      margin-bottom: 3.5rem;
-    }
-
-    .team-card {
-      background: var(--white);
-      border: 1.5px solid var(--border);
-      border-radius: 14px;
-      overflow: hidden;
-      text-align: center;
-    }
-
-    .team-avatar {
-      width: 100%;
-      aspect-ratio: 1;
-      object-fit: cover;
-      display: block;
-    }
-
-    .team-avatar-placeholder {
-      width: 100%;
-      aspect-ratio: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 4rem;
-      background: var(--cream-dark);
-    }
-
-    .team-body {
-      padding: 1.25rem 1rem 1.5rem;
-    }
-
-    .team-role {
-      display: inline-block;
-      font-size: 0.72rem;
-      font-weight: 600;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      background: var(--rust-pale);
-      color: var(--rust);
-      padding: 0.2rem 0.6rem;
-      border-radius: 4px;
-      margin-bottom: 0.6rem;
-    }
-
-    .team-name {
-      font-family: var(--font-display);
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: var(--brown);
-      margin-bottom: 0.4rem;
-    }
-
-    .team-bio {
-      font-size: 0.84rem;
-      color: var(--text-muted);
-      line-height: 1.6;
-    }
-
-    .team-fun {
-      margin-top: 0.6rem;
-      font-size: 0.8rem;
-      color: var(--brown-light);
-      font-style: italic;
-    }
-
-    .advisor-box {
-      background: var(--brown);
-      color: var(--white);
-      border-radius: 14px;
-      padding: 2rem 2.5rem;
-      display: flex;
-      gap: 2rem;
-      align-items: center;
-      margin-bottom: 3rem;
-      flex-wrap: wrap;
-    }
-
-    .advisor-avatar {
-      width: 90px;
-      height: 90px;
-      border-radius: 50%;
-      background: var(--rust);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 2.5rem;
-      flex-shrink: 0;
-    }
-
-    .advisor-box h3 {
-      font-family: var(--font-display);
-      font-size: 1.25rem;
-      font-weight: 700;
-      color: var(--cream);
-      margin-bottom: 0.3rem;
-    }
-
-    .advisor-box .advisor-role {
-      font-size: 0.78rem;
-      font-weight: 600;
-      letter-spacing: 0.07em;
-      text-transform: uppercase;
-      color: #F4A26B;
-      margin-bottom: 0.6rem;
-    }
-
-    .advisor-box p {
-      font-size: 0.9rem;
-      color: #D4C4B0;
-      line-height: 1.65;
-      max-width: 500px;
-    }
-
-    .values-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1.25rem;
-    }
-
-    .value-card {
-      background: var(--white);
-      border: 1.5px solid var(--border);
-      border-radius: 12px;
-      padding: 1.5rem;
-    }
-
-    .value-card .v-icon { font-size: 1.5rem; margin-bottom: 0.6rem; }
-
-    .value-card h3 {
-      font-family: var(--font-display);
-      font-size: 0.98rem;
-      font-weight: 700;
-      color: var(--brown);
-      margin-bottom: 0.35rem;
-    }
-
-    .value-card p { font-size: 0.84rem; color: var(--text-muted); line-height: 1.6; }
-  </style>
 </head>
 <body>
 
@@ -169,58 +25,48 @@
   </div>
 </nav>
 
-<section class="hero" style="padding: 4rem 2rem 3.5rem;">
+<section class="hero">
   <div class="hero-inner">
     <div class="hero-badge">Meet the Team</div>
-    <h1>Welcome to<br><em>The Chicken Coop.</em></h1>
+    <h1>Welcome to <em>The Chicken Coop.</em></h1>
   </div>
 </section>
 
 <section style="background: var(--white);">
   <div class="section-inner">
 
-    <p class="section-label">The Mother Hens</p>
-    <h2 class="section-title">Founders.</h2>
+    <p class="section-label reveal">The Mother Hens</p>
+    <h2 class="section-title reveal">Founders.</h2>
 
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-bottom: 3.5rem;">
+    <div class="team-grid-founders" style="margin-bottom:3.5rem;">
 
-      <div class="team-card" style="border: 2.5px solid var(--rust);">
+      <div class="team-card reveal delay-1" style="border:2.5px solid var(--rust);">
         <img src="valerie.jpg" alt="Valerie Ho" class="team-avatar" />
         <div class="team-body">
-          <span class="team-role" style="background: var(--rust); color: var(--cream);">Co-founder</span>
+          <span class="team-role" style="background:var(--rust);color:var(--cream);">Co-founder</span>
           <div class="team-name">Valerie Ho</div>
           <p class="team-bio">I make vlogs, obsess over cities I've never been to, and somehow ended up with a merch brand. Currently reminiscing about a train somewhere in Europe.</p>
           <p class="team-fun">"Lemme check my Google Maps saved list."</p>
         </div>
       </div>
 
-      <div class="team-card" style="border: 2.5px solid var(--rust);">
+      <div class="team-card reveal delay-2" style="border:2.5px solid var(--rust);">
         <img src="katherine.jpg" alt="Katherine Dai" class="team-avatar" />
         <div class="team-body">
-          <span class="team-role" style="background: var(--rust); color: var(--cream);">Co-founder</span>
+          <span class="team-role" style="background:var(--rust);color:var(--cream);">Co-founder</span>
           <div class="team-name">Katherine Dai</div>
-          <p class="team-bio">I like  debate and photography. I've been to all continents except Antartica :( Gonna convince Valerie to go with me for grad trip lol.</p>
+          <p class="team-bio">I like debate and photography. I've been to all continents except Antarctica. Gonna convince Valerie to go with me for grad trip lol.</p>
           <p class="team-fun">"I finally got a 7 in Physics."</p>
         </div>
       </div>
 
     </div>
 
-    <p class="section-label">The Chickens</p>
-    <h2 class="section-title">Team Members.</h2>
+    <p class="section-label reveal">The Chickens</p>
+    <h2 class="section-title reveal">Team Members.</h2>
 
     <div class="team-grid">
-
-      <div class="team-card">
-        <div class="team-avatar-placeholder">🧑</div>
-        <div class="team-body">
-          <span class="team-role">Member</span>
-          <div class="team-name">Coming soon</div>
-          <p class="team-bio">This spot is open. </p>
-        </div>
-      </div>
-
-      <div class="team-card">
+      <div class="team-card reveal delay-1">
         <div class="team-avatar-placeholder">🧑</div>
         <div class="team-body">
           <span class="team-role">Member</span>
@@ -228,8 +74,7 @@
           <p class="team-bio">This spot is open.</p>
         </div>
       </div>
-
-      <div class="team-card">
+      <div class="team-card reveal delay-2">
         <div class="team-avatar-placeholder">🧑</div>
         <div class="team-body">
           <span class="team-role">Member</span>
@@ -237,8 +82,7 @@
           <p class="team-bio">This spot is open.</p>
         </div>
       </div>
-
-      <div class="team-card">
+      <div class="team-card reveal delay-3">
         <div class="team-avatar-placeholder">🧑</div>
         <div class="team-body">
           <span class="team-role">Member</span>
@@ -246,20 +90,26 @@
           <p class="team-bio">This spot is open.</p>
         </div>
       </div>
-
+      <div class="team-card reveal delay-4">
+        <div class="team-avatar-placeholder">🧑</div>
+        <div class="team-body">
+          <span class="team-role">Member</span>
+          <div class="team-name">Coming soon</div>
+          <p class="team-bio">This spot is open.</p>
+        </div>
+      </div>
     </div>
+
   </div>
 </section>
 
-<hr style="border: none; border-top: 2px solid var(--border); margin: 0;">
-
 <section style="background: var(--cream);">
   <div class="section-inner">
-    <p class="section-label">Join us</p>
-    <h2 class="section-title">Want to be a fire chicken?</h2>
-    <p class="section-sub">We're looking for designers, programmers, and CEOs. More details are in the form below!</p>
+    <p class="section-label reveal">Join us</p>
+    <h2 class="section-title reveal">Want to be a Fire Chicken?</h2>
+    <p class="section-sub reveal">We're looking for designers, programmers, and leaders. More details are in the form below!</p>
 
-    <div style="background: var(--white); border-radius: 14px; border: 2px solid var(--border); padding: 1.5rem; box-shadow: 0 2px 12px rgba(0,0,0,0.06);">
+    <div style="background:var(--white);border-radius:16px;border:2px solid var(--border);padding:1.5rem;box-shadow:var(--shadow-card);">
       <iframe
         src="https://docs.google.com/forms/d/e/1FAIpQLSc1HUA3Bpgk6PrvXj32yMr4TtgG5v_1sSfiyqVemRKCh_1sRw/viewform?embedded=true"
         width="100%"
@@ -267,8 +117,8 @@
         frameborder="0"
         marginheight="0"
         marginwidth="0"
-        style="display: block; overflow-y: auto;"
-      >Loading form…</iframe>
+        style="display:block;overflow-y:auto;"
+      >Loading form...</iframe>
     </div>
   </div>
 </section>
@@ -276,7 +126,8 @@
 <footer>
   <div class="footer-inner">
     <div>
-      <img src="logo-text.png" alt="Fire Chicken Productions" style="max-width: 180px; display: block;">
+      <img src="logo-text.png" alt="Fire Chicken Productions" style="max-width:180px;display:block;margin-bottom:0.75rem;">
+      <p class="footer-tagline">Student-led merch brand. 100% of profits donated.</p>
     </div>
     <div class="footer-col">
       <h4>Navigate</h4>
@@ -298,9 +149,19 @@
   </div>
   <div class="footer-bottom">
     <span>© Fire Chicken Productions. 100% profits donated.</span>
-    <span>EST.2025</span>
+    <span>EST. 2025</span>
   </div>
 </footer>
+
+<script>
+  window.addEventListener('scroll', () => {
+    document.querySelector('nav').classList.toggle('scrolled', window.scrollY > 60);
+  });
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in-view'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal, .reveal-up').forEach(el => observer.observe(el));
+</script>
 
 </body>
 </html>

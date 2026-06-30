@@ -6,128 +6,6 @@
   <title>Products — Fire Chicken Productions</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" href="logo.png" type="image/png">
-  <style>
-    .products-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.75rem;
-      margin-bottom: 3.5rem;
-    }
-
-    @media (max-width: 750px)  { .products-grid { grid-template-columns: repeat(2, 1fr); } }
-    @media (max-width: 480px)  { .products-grid { grid-template-columns: 1fr; } }
-
-    .filter-btn {
-      padding: 0.5rem 1rem;
-      border: 1.5px solid var(--border);
-      border-radius: 8px;
-      background: var(--white);
-      color: var(--text);
-      font-family: var(--font-body);
-      font-size: 0.88rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: background 0.15s, color 0.15s, border-color 0.15s;
-    }
-    .filter-btn:hover, .filter-btn.active {
-      background: var(--rust);
-      color: var(--cream);
-      border-color: var(--rust);
-    }
-
-    .product-card-new.hidden { display: none; }
-
-    /* Swipe card */
-    .flip-card {
-      height: 380px;
-      cursor: pointer;
-      overflow: hidden;
-      border-radius: 14px 14px 0 0;
-      position: relative;
-    }
-
-    .flip-inner {
-      display: flex;
-      width: 200%;
-      height: 100%;
-      transition: transform 0.45s cubic-bezier(0.4, 0.2, 0.2, 1);
-    }
-
-    .flip-card:hover .flip-inner,
-    .flip-card.flipped .flip-inner {
-      transform: translateX(-50%);
-    }
-
-    .flip-face {
-      width: 50%;
-      height: 100%;
-      flex-shrink: 0;
-      overflow: hidden;
-      background: var(--white);
-    }
-
-    .flip-face img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    /* Card body below the flip image */
-    .product-card-new {
-      background: var(--white);
-      border: 1.5px solid var(--border);
-      border-radius: 14px;
-      overflow: hidden;
-    }
-
-    .product-card-new .product-body { padding: 1.1rem 1.15rem 1.4rem; }
-    .product-card-new .product-tag {
-      display: inline-block;
-      font-size: 0.72rem;
-      font-weight: 600;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      background: var(--rust-pale);
-      color: var(--rust);
-      padding: 0.2rem 0.6rem;
-      border-radius: 4px;
-      margin-bottom: 0.5rem;
-    }
-    .product-card-new .product-name {
-      font-family: var(--font-display);
-      font-size: 1rem;
-      letter-spacing: 0.03em;
-      text-transform: uppercase;
-      color: var(--brown);
-      margin-bottom: 0.3rem;
-      line-height: 1.25;
-    }
-    .product-card-new .product-desc {
-      font-size: 0.84rem;
-      color: var(--text-muted);
-      line-height: 1.55;
-      margin-bottom: 0.8rem;
-    }
-    .product-card-new .product-footer {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .product-card-new .product-price {
-      font-family: var(--font-display);
-      font-size: 1.25rem;
-      color: var(--rust);
-    }
-    .product-card-new .product-badge {
-      font-size: 0.72rem;
-      font-weight: 600;
-      background: var(--green-pale);
-      color: var(--green);
-      padding: 0.2rem 0.55rem;
-      border-radius: 4px;
-    }
-  </style>
 </head>
 <body>
 
@@ -147,43 +25,47 @@
   </div>
 </nav>
 
-<section class="hero" style="padding: 4rem 2rem 3.5rem;">
-  <div class="hero-inner">
-    <div class="hero-badge">Summer 2026 collection</div>
-    <h1>Our <em>Products.</em></h1>
-    <!-- Collection tabs -->
-    <div style="display: flex; gap: 0; margin-top: 1.75rem; border: 1.5px solid rgba(255,255,255,0.35); border-radius: 10px; overflow: hidden; width: fit-content; margin-left: auto; margin-right: auto;">
-      <button id="tab-teacher" onclick="switchTab('teacher')" style="padding: 0.65rem 1.75rem; font-family: var(--font-body); font-size: 0.95rem; font-weight: 700; border: none; cursor: pointer; background: var(--cream); color: var(--brown);">Teacher Collection</button>
-      <button id="tab-science" onclick="switchTab('science')" style="padding: 0.65rem 1.75rem; font-family: var(--font-body); font-size: 0.95rem; font-weight: 700; border: none; cursor: pointer; background: transparent; color: var(--cream); border-left: 1.5px solid rgba(255,255,255,0.35);">Science Collection</button>
-    </div>
+<!-- 3D MASCOT HERO -->
+<div class="mascot-hero">
+  <div class="mascot-canvas-wrap">
+    <div class="mascot-glow"></div>
+    <canvas id="mascot-canvas"></canvas>
   </div>
-</section>
+  <h1 style="font-family:var(--font-display);font-size:clamp(3.5rem,9vw,7rem);text-transform:uppercase;letter-spacing:0.03em;color:var(--cream);-webkit-text-stroke:1.5px rgba(253,232,156,0.2);text-align:center;margin-top:-5rem;margin-bottom:0;position:relative;z-index:2;line-height:1;">Our <em style="font-style:normal;color:var(--cream-dark);-webkit-text-stroke:1.5px var(--rust);">Products.</em></h1>
 
+</div>
+
+<!-- PRODUCTS GRID -->
 <section style="background: var(--white);">
   <div class="section-inner">
+    <!-- Collection tabs -->
+    <div class="collection-tabs" style="margin-bottom: 1.5rem; position: relative; z-index: 10;">
+      <button id="tab-teacher" class="collection-tab active" onclick="switchTab('teacher')">Teacher Collection</button>
+      <button id="tab-science" class="collection-tab" onclick="switchTab('science')">Science Collection</button>
+    </div>
     <!-- Search bar -->
     <div style="margin-bottom: 2rem;">
-      <input type="text" id="search-input" placeholder="Search products..." style="width: 100%; padding: 0.6rem 1rem; border: 1.5px solid var(--border); border-radius: 8px; font-family: var(--font-body); font-size: 0.9rem; color: var(--text); background: var(--white); outline: none; box-sizing: border-box;">
+      <input type="text" id="search-input" placeholder="Search products..." style="width:100%;padding:0.65rem 1rem;border:1.5px solid var(--border);border-radius:10px;font-family:var(--font-body);font-size:0.9rem;color:var(--text);background:var(--white);outline:none;box-sizing:border-box;transition:border-color 0.15s;" onfocus="this.style.borderColor='var(--rust)'" onblur="this.style.borderColor='var(--border)'">
     </div>
 
     <div class="products-grid" id="grid-teacher">
 
-      <!-- Customize card — first -->
-      <div class="product-card-new" style="border: 2px dashed var(--rust); background: var(--cream);">
-        <a href="customize.html" style="text-decoration: none;">
-          <div style="height: 380px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1rem; background: linear-gradient(135deg, var(--cream) 0%, #f9d97a 100%);">
-            <div style="font-size: 3.5rem;">🎨</div>
-            <div style="font-family: var(--font-display); font-size: 1.3rem; text-transform: uppercase; color: var(--brown); text-align: center; letter-spacing: 0.04em;">Design your own</div>
-            <div style="font-size: 0.85rem; color: var(--rust); font-weight: 600; text-align: center; padding: 0 1.5rem;">We haven't featured your favourite teacher? We'll make that happen→</div>
+      <!-- Customize card -->
+      <div class="product-card-new" style="border:2px dashed var(--rust);background:var(--cream);">
+        <a href="customize.html" style="text-decoration:none;">
+          <div style="height:380px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;background:linear-gradient(135deg,var(--cream) 0%,#f9d97a 100%);">
+            <div style="font-size:3.5rem;">🎨</div>
+            <div style="font-family:var(--font-display);font-size:1.3rem;text-transform:uppercase;color:var(--brown);text-align:center;letter-spacing:0.04em;">Design your own</div>
+            <div style="font-size:0.85rem;color:var(--rust);font-weight:600;text-align:center;padding:0 1.5rem;">We haven't featured your favourite teacher? We'll make that happen →</div>
           </div>
         </a>
         <div class="product-body">
-          <span class="product-tag" style="background: var(--rust); color: var(--cream);">Custom</span>
+          <span class="product-tag" style="background:var(--rust);color:var(--cream);">Custom</span>
           <div class="product-name">Customize Your Own</div>
           <p class="product-desc">Want a different color? Want a different teacher? Learn more to get a free shirt!</p>
           <div class="product-footer">
-            <span class="product-price" style="color: var(--brown);">From $0</span>
-            <a href="customize.html" class="btn btn-primary" style="font-size: 0.78rem; padding: 0.35rem 0.85rem;">Order now</a>
+            <span class="product-price" style="color:var(--brown);">From $0</span>
+            <a href="customize.html" class="btn btn-primary" style="font-size:0.78rem;padding:0.35rem 0.85rem;">Order now</a>
           </div>
         </div>
       </div>
@@ -192,12 +74,8 @@
       <div class="product-card-new">
         <div class="flip-card" id="card1">
           <div class="flip-inner">
-            <div class="flip-face front">
-              <img src="shirt2-front.jpg" alt="Mr. Mumm tee front" />
-            </div>
-            <div class="flip-face back">
-              <img src="shirt2-back.jpg" alt="Mr. Mumm tee back" />
-            </div>
+            <div class="flip-face front"><img src="shirt2-front.jpg" alt="Mr. Mumm tee front" /></div>
+            <div class="flip-face back"><img src="shirt2-back.jpg" alt="Mr. Mumm tee back" /></div>
           </div>
         </div>
         <div class="product-body">
@@ -215,12 +93,8 @@
       <div class="product-card-new">
         <div class="flip-card" id="card2">
           <div class="flip-inner">
-            <div class="flip-face front">
-              <img src="shirt1-front.jpg" alt="Mr. Dhakal tee front" />
-            </div>
-            <div class="flip-face back">
-              <img src="shirt1-back.jpg" alt="Mr. Dhakal tee back" />
-            </div>
+            <div class="flip-face front"><img src="shirt1-front.jpg" alt="Mr. Dhakal tee front" /></div>
+            <div class="flip-face back"><img src="shirt1-back.jpg" alt="Mr. Dhakal tee back" /></div>
           </div>
         </div>
         <div class="product-body">
@@ -238,12 +112,8 @@
       <div class="product-card-new">
         <div class="flip-card" id="card3">
           <div class="flip-inner">
-            <div class="flip-face front">
-              <img src="shirt3-front.jpg" alt="Mr. Walsh tee front" />
-            </div>
-            <div class="flip-face back">
-              <img src="shirt3-back.jpg" alt="Mr. Walsh tee back" />
-            </div>
+            <div class="flip-face front"><img src="shirt3-front.jpg" alt="Mr. Walsh tee front" /></div>
+            <div class="flip-face back"><img src="shirt3-back.jpg" alt="Mr. Walsh tee back" /></div>
           </div>
         </div>
         <div class="product-body">
@@ -261,12 +131,8 @@
       <div class="product-card-new">
         <div class="flip-card" id="card4">
           <div class="flip-inner">
-            <div class="flip-face front">
-              <img src="shirt4-front.jpg" alt="Mr. Madurga tee front" />
-            </div>
-            <div class="flip-face back">
-              <img src="shirt4-back.jpg" alt="Mr. Madurga tee back" />
-            </div>
+            <div class="flip-face front"><img src="shirt4-front.jpg" alt="Mr. Madurga tee front" /></div>
+            <div class="flip-face back"><img src="shirt4-back.jpg" alt="Mr. Madurga tee back" /></div>
           </div>
         </div>
         <div class="product-body">
@@ -284,12 +150,8 @@
       <div class="product-card-new">
         <div class="flip-card" id="card5">
           <div class="flip-inner">
-            <div class="flip-face front">
-              <img src="shirt5-front.jpg" alt="Ms. Huo tee front" />
-            </div>
-            <div class="flip-face back">
-              <img src="shirt5-back.jpg" alt="Ms. Huo tee back" />
-            </div>
+            <div class="flip-face front"><img src="shirt5-front.jpg" alt="Ms. Huo tee front" /></div>
+            <div class="flip-face back"><img src="shirt5-back.jpg" alt="Ms. Huo tee back" /></div>
           </div>
         </div>
         <div class="product-body">
@@ -307,12 +169,8 @@
       <div class="product-card-new">
         <div class="flip-card" id="card6">
           <div class="flip-inner">
-            <div class="flip-face front">
-              <img src="shirt6-front.jpg" alt="Ms. Chen tee front" />
-            </div>
-            <div class="flip-face back">
-              <img src="shirt6-back.jpg" alt="Ms. Chen tee back" />
-            </div>
+            <div class="flip-face front"><img src="shirt6-front.jpg" alt="Ms. Chen tee front" /></div>
+            <div class="flip-face back"><img src="shirt6-back.jpg" alt="Ms. Chen tee back" /></div>
           </div>
         </div>
         <div class="product-body">
@@ -330,12 +188,8 @@
       <div class="product-card-new">
         <div class="flip-card" id="hoodie1">
           <div class="flip-inner">
-            <div class="flip-face front">
-              <img src="hoodie1-front.jpg" alt="Ms. Song hoodie front" />
-            </div>
-            <div class="flip-face back">
-              <img src="hoodie1-back.jpg" alt="Ms. Song hoodie back" />
-            </div>
+            <div class="flip-face front"><img src="hoodie1-front.jpg" alt="Ms. Song hoodie front" /></div>
+            <div class="flip-face back"><img src="hoodie1-back.jpg" alt="Ms. Song hoodie back" /></div>
           </div>
         </div>
         <div class="product-body">
@@ -353,12 +207,8 @@
       <div class="product-card-new">
         <div class="flip-card" id="hoodie2">
           <div class="flip-inner">
-            <div class="flip-face front">
-              <img src="hoodie2-front.jpg" alt="Ms. Huo hoodie front" />
-            </div>
-            <div class="flip-face back">
-              <img src="hoodie2-back.jpg" alt="Ms. Huo hoodie back" />
-            </div>
+            <div class="flip-face front"><img src="hoodie2-front.jpg" alt="Ms. Huo hoodie front" /></div>
+            <div class="flip-face back"><img src="hoodie2-back.jpg" alt="Ms. Huo hoodie back" /></div>
           </div>
         </div>
         <div class="product-body">
@@ -372,16 +222,12 @@
         </div>
       </div>
 
-      <!-- Hoodie 3 — Mr. Mumm -->
+      <!-- Hoodie 3 -->
       <div class="product-card-new">
         <div class="flip-card" id="hoodie3">
           <div class="flip-inner">
-            <div class="flip-face front">
-              <img src="hoodie3-front.jpg" alt="Mr. Mumm hoodie front" />
-            </div>
-            <div class="flip-face back">
-              <img src="hoodie3-back.jpg" alt="Mr. Mumm hoodie back" />
-            </div>
+            <div class="flip-face front"><img src="hoodie3-front.jpg" alt="Mr. Mumm hoodie front" /></div>
+            <div class="flip-face back"><img src="hoodie3-back.jpg" alt="Mr. Mumm hoodie back" /></div>
           </div>
         </div>
         <div class="product-body">
@@ -395,16 +241,12 @@
         </div>
       </div>
 
-      <!-- Tote Bag — Mr. Mumm -->
+      <!-- Tote 1 -->
       <div class="product-card-new">
         <div class="flip-card" id="tote1">
           <div class="flip-inner">
-            <div class="flip-face front">
-              <img src="tote1-front.jpg" alt="Mr. Mumm tote front" />
-            </div>
-            <div class="flip-face back">
-              <img src="tote1-back.jpg" alt="Mr. Mumm tote back" />
-            </div>
+            <div class="flip-face front"><img src="tote1-front.jpg" alt="Mr. Mumm tote front" /></div>
+            <div class="flip-face back"><img src="tote1-back.jpg" alt="Mr. Mumm tote back" /></div>
           </div>
         </div>
         <div class="product-body">
@@ -418,16 +260,12 @@
         </div>
       </div>
 
-      <!-- Tote Bag — Mr. Walsh -->
+      <!-- Tote 2 -->
       <div class="product-card-new">
         <div class="flip-card" id="tote2">
           <div class="flip-inner">
-            <div class="flip-face front">
-              <img src="tote2-front.jpg" alt="Mr. Walsh tote front" />
-            </div>
-            <div class="flip-face back">
-              <img src="tote2-back.jpg" alt="Mr. Walsh tote back" />
-            </div>
+            <div class="flip-face front"><img src="tote2-front.jpg" alt="Mr. Walsh tote front" /></div>
+            <div class="flip-face back"><img src="tote2-back.jpg" alt="Mr. Walsh tote back" /></div>
           </div>
         </div>
         <div class="product-body">
@@ -441,16 +279,12 @@
         </div>
       </div>
 
-      <!-- Tote Bag — Mr. Madurga -->
+      <!-- Tote 3 -->
       <div class="product-card-new">
         <div class="flip-card" id="tote3">
           <div class="flip-inner">
-            <div class="flip-face front">
-              <img src="tote3-front.jpg" alt="Mr. Madurga tote front" />
-            </div>
-            <div class="flip-face back">
-              <img src="tote3-back.jpg" alt="Mr. Madurga tote back" />
-            </div>
+            <div class="flip-face front"><img src="tote3-front.jpg" alt="Mr. Madurga tote front" /></div>
+            <div class="flip-face back"><img src="tote3-back.jpg" alt="Mr. Madurga tote back" /></div>
           </div>
         </div>
         <div class="product-body">
@@ -464,16 +298,12 @@
         </div>
       </div>
 
-      <!-- Tote Bag — Mr. Dhakal -->
+      <!-- Tote 4 -->
       <div class="product-card-new">
         <div class="flip-card" id="tote4">
           <div class="flip-inner">
-            <div class="flip-face front">
-              <img src="tote4-front.jpg" alt="Mr. Dhakal tote front" />
-            </div>
-            <div class="flip-face back">
-              <img src="tote4-back.jpg" alt="Mr. Dhakal tote back" />
-            </div>
+            <div class="flip-face front"><img src="tote4-front.jpg" alt="Mr. Dhakal tote front" /></div>
+            <div class="flip-face back"><img src="tote4-back.jpg" alt="Mr. Dhakal tote back" /></div>
           </div>
         </div>
         <div class="product-body">
@@ -489,12 +319,11 @@
 
     </div><!-- end grid-teacher -->
 
-    <div class="products-grid" id="grid-science" style="display: none;">
+    <div class="products-grid" id="grid-science" style="display:none;">
 
-      <!-- Mug 1 — Physics -->
       <div class="product-card-new">
-        <div style="height: 380px; overflow: hidden;">
-          <img src="mug1.jpg" alt="Physics Mug" style="width: 100%; height: 100%; object-fit: cover;">
+        <div style="height:380px;overflow:hidden;">
+          <img src="mug1.jpg" alt="Physics Mug" style="width:100%;height:100%;object-fit:cover;">
         </div>
         <div class="product-body">
           <span class="product-tag">Mug</span>
@@ -507,10 +336,9 @@
         </div>
       </div>
 
-      <!-- Mug 2 — Biology -->
       <div class="product-card-new">
-        <div style="height: 380px; overflow: hidden;">
-          <img src="mug2.jpg" alt="Biology Mug" style="width: 100%; height: 100%; object-fit: cover;">
+        <div style="height:380px;overflow:hidden;">
+          <img src="mug2.jpg" alt="Biology Mug" style="width:100%;height:100%;object-fit:cover;">
         </div>
         <div class="product-body">
           <span class="product-tag">Mug</span>
@@ -523,10 +351,9 @@
         </div>
       </div>
 
-      <!-- Mug 3 — Chemistry -->
       <div class="product-card-new">
-        <div style="height: 380px; overflow: hidden;">
-          <img src="mug3.jpg" alt="Chemistry Mug" style="width: 100%; height: 100%; object-fit: cover;">
+        <div style="height:380px;overflow:hidden;">
+          <img src="mug3.jpg" alt="Chemistry Mug" style="width:100%;height:100%;object-fit:cover;">
         </div>
         <div class="product-body">
           <span class="product-tag">Mug</span>
@@ -539,11 +366,9 @@
         </div>
       </div>
 
-
-      <!-- Science Folder -->
       <div class="product-card-new">
-        <div style="height: 380px; overflow: hidden;">
-          <img src="folder1.jpg" alt="Science Folder" style="width: 100%; height: 100%; object-fit: cover;">
+        <div style="height:380px;overflow:hidden;">
+          <img src="folder1.jpg" alt="Science Folder" style="width:100%;height:100%;object-fit:cover;">
         </div>
         <div class="product-body">
           <span class="product-tag">Folder</span>
@@ -560,19 +385,20 @@
   </div>
 </section>
 
-<section>
+<!-- ORDER SECTION -->
+<section style="background: var(--cream); padding-top: 5rem; padding-bottom: 6rem;">
   <div class="section-inner">
-    <div class="order-box">
+    <div class="order-box reveal">
       <div>
         <h2>Ready to order?</h2>
-        <p>Follow the steps on the right to order!</p>
-        <a href="https://www.instagram.com/firechicken.productions" class="btn btn-primary" style="background: #F4A26B; color: var(--brown);">DM us on Instagram →</a>
+        <p>Follow the steps on the right to place your order. We reply within 24 hours!</p>
+        <a href="https://www.instagram.com/firechicken.productions" class="btn btn-primary" style="background:#F4A26B;color:var(--brown);border-color:rgba(58,13,16,0.3);">DM us on Instagram</a>
       </div>
       <div>
         <ol class="order-steps">
           <li>
             <span class="order-step-num">1</span>
-            <span>Find us on Instagram <strong style="color: var(--cream);">@firechicken.productions</strong> and send us a DM with what you want!</span>
+            <span>Find us on Instagram <strong style="color:var(--cream);">@firechicken.productions</strong> and send us a DM with what you want!</span>
           </li>
           <li>
             <span class="order-step-num">2</span>
@@ -580,21 +406,21 @@
           </li>
           <li>
             <span class="order-step-num">3</span>
-            <span>Pay in person with Cash/WeChat Pay/Alipay (we accept both HKD and RMB) <strong style="color: var(--cream);" </span>
+            <span>Pay in person with Cash / WeChat Pay / Alipay - we accept both HKD and RMB</span>
           </li>
           <li>
             <span class="order-step-num">4</span>
-            <span>Wear it proudly knowing a chunk of what you paid is going somewhere that matters. You did it!</span>
+            <span>Wear it proudly knowing a chunk of what you paid is going somewhere that matters.</span>
           </li>
         </ol>
       </div>
     </div>
 
-    <div style="background: var(--white); border: 1.5px solid var(--border); border-radius: 12px; padding: 1.5rem 2rem; margin-top: 1.5rem; display: flex; gap: 1rem; align-items: flex-start; flex-wrap: wrap;">
-      <div style="font-size: 1.5rem; flex-shrink: 0;">📦</div>
+    <div style="background:var(--white);border:1.5px solid var(--border);border-radius:14px;padding:1.5rem 2rem;margin-top:1.25rem;display:flex;gap:1rem;align-items:flex-start;flex-wrap:wrap;box-shadow:var(--shadow-card);">
+      <div style="font-size:1.5rem;flex-shrink:0;">📦</div>
       <div>
-        <div style="font-weight: 600; color: var(--brown); margin-bottom: 0.3rem;">Pick-up or delivery to locker only</div>
-        <div style="font-size: 0.9rem; color: var(--text-muted);">Either coordinate a time to pick up or we can deliver to your locker. If you are absent/graduated, please DM us.</div>
+        <div style="font-weight:600;color:var(--brown);margin-bottom:0.3rem;">Pick-up or delivery to locker only</div>
+        <div style="font-size:0.9rem;color:var(--text-muted);">Either coordinate a time to pick up or we can deliver to your locker. If you are absent or graduated, please DM us.</div>
       </div>
     </div>
   </div>
@@ -603,7 +429,8 @@
 <footer>
   <div class="footer-inner">
     <div>
-      <img src="logo-text.png" alt="Fire Chicken Productions" style="max-width: 180px; display: block;">
+      <img src="logo-text.png" alt="Fire Chicken Productions" style="max-width:180px;display:block;margin-bottom:0.75rem;">
+      <p class="footer-tagline">Student-led merch brand. 100% of profits donated.</p>
     </div>
     <div class="footer-col">
       <h4>Navigate</h4>
@@ -625,44 +452,161 @@
   </div>
   <div class="footer-bottom">
     <span>© Fire Chicken Productions. 100% profits donated.</span>
-    <span>EST.2025</span>
+    <span>EST. 2025</span>
   </div>
 </footer>
 
+<!-- Three.js ES modules -->
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.161.0/build/three.module.js",
+    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.161.0/examples/jsm/"
+  }
+}
+</script>
 <script>
-  // Touch/swipe to flip on mobile
+  /* NAV glassmorphism */
+  window.addEventListener('scroll', () => {
+    document.querySelector('nav').classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  /* Scroll reveal */
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in-view'); });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal, .reveal-up').forEach(el => observer.observe(el));
+</script>
+<script type="module">
+  import * as THREE from 'three';
+  import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+
+  const canvas = document.getElementById('mascot-canvas');
+  if (canvas) {
+  const w = canvas.offsetWidth || 500;
+  const h = canvas.offsetHeight || 500;
+
+  const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
+  renderer.setSize(w, h);
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+  renderer.outputColorSpace = THREE.SRGBColorSpace;
+
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(55, w / h, 0.1, 100);
+  camera.position.set(0, 0, 3.8);
+
+  scene.add(new THREE.AmbientLight(0xffffff, 1.5));
+  const key = new THREE.DirectionalLight(0xfde89c, 2.5);
+  key.position.set(3, 4, 3);
+  scene.add(key);
+  const fill = new THREE.DirectionalLight(0xc0372b, 1.2);
+  fill.position.set(-3, -1, 2);
+  scene.add(fill);
+  const rim = new THREE.DirectionalLight(0xffffff, 0.8);
+  rim.position.set(0, -3, -3);
+  scene.add(rim);
+
+  let mascot = null;
+  let t = 0;
+  let autoRotate = true;
+  let isDragging = false;
+  let prevX = 0, prevY = 0;
+  let rotX = 0, rotY = 0;
+  let velX = 0, velY = 0;
+
+  const loader = new GLTFLoader();
+  loader.load('mascot.glb', (gltf) => {
+    mascot = gltf.scene;
+    const box = new THREE.Box3().setFromObject(mascot);
+    const center = box.getCenter(new THREE.Vector3());
+    const size = box.getSize(new THREE.Vector3());
+    const scale = 2.4 / Math.max(size.x, size.y, size.z);
+    mascot.scale.setScalar(scale);
+    mascot.position.sub(center.multiplyScalar(scale));
+    scene.add(mascot);
+  }, undefined, (err) => console.error('GLB load error:', err));
+
+  canvas.addEventListener('mousedown', e => { isDragging = true; autoRotate = false; prevX = e.clientX; prevY = e.clientY; velX = 0; velY = 0; });
+  window.addEventListener('mousemove', e => {
+    if (!isDragging) return;
+    const dx = e.clientX - prevX;
+    const dy = e.clientY - prevY;
+    velX = dx * 0.005;
+    velY = dy * 0.005;
+    rotY += velX;
+    rotX += velY;
+    rotX = Math.max(-Math.PI / 2, Math.min(Math.PI / 2, rotX));
+    prevX = e.clientX; prevY = e.clientY;
+  });
+  window.addEventListener('mouseup', () => { isDragging = false; });
+  canvas.addEventListener('mouseleave', () => { if (!isDragging) autoRotate = true; });
+
+  function animate() {
+    requestAnimationFrame(animate);
+    t += 0.01;
+    if (mascot) {
+      if (!isDragging && !autoRotate) {
+        velX *= 0.92; velY *= 0.92;
+        rotY += velX; rotX += velY;
+        if (Math.abs(velX) < 0.0001 && Math.abs(velY) < 0.0001) autoRotate = true;
+      }
+      if (autoRotate) rotY += 0.008;
+      mascot.rotation.y = rotY;
+      mascot.rotation.x = rotX;
+      if (autoRotate) mascot.position.y = Math.sin(t * 0.7) * 0.08;
+    }
+    renderer.render(scene, camera);
+  }
+  animate();
+
+  window.addEventListener('resize', () => {
+    const nw = canvas.offsetWidth;
+    const nh = canvas.offsetHeight;
+    renderer.setSize(nw, nh);
+    camera.aspect = nw / nh;
+    camera.updateProjectionMatrix();
+  });
+  } // end if (canvas)
+
+  /* Touch/swipe to flip on mobile */
   document.querySelectorAll('.flip-card').forEach(card => {
     let startX = 0;
-
-    card.addEventListener('touchstart', e => {
-      startX = e.touches[0].clientX;
-    }, { passive: true });
-
+    card.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
     card.addEventListener('touchend', e => {
       const diff = e.changedTouches[0].clientX - startX;
-      if (Math.abs(diff) > 30) {
-        card.classList.toggle('flipped');
-      }
+      if (Math.abs(diff) > 30) card.classList.toggle('flipped');
     });
+    card.addEventListener('click', () => { card.classList.toggle('flipped'); });
+  });
 
-    // Also allow tap to flip on mobile (no hover on touch screens)
-    card.addEventListener('click', () => {
-      card.classList.toggle('flipped');
+  /* Mouse tilt on product cards */
+  document.querySelectorAll('.product-card-new').forEach(card => {
+    card.addEventListener('mousemove', e => {
+      const r = card.getBoundingClientRect();
+      const x = (e.clientX - r.left) / r.width - 0.5;
+      const y = (e.clientY - r.top) / r.height - 0.5;
+      card.style.transform = `perspective(700px) rotateY(${x * 10}deg) rotateX(${-y * 8}deg) translateZ(6px)`;
+    });
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = 'perspective(700px) rotateY(0) rotateX(0) translateZ(0)';
+      card.style.transition = 'transform 0.4s cubic-bezier(0.2,0,0,1), box-shadow 0.2s ease';
+    });
+    card.addEventListener('mouseenter', () => {
+      card.style.transition = 'none';
     });
   });
 
+  /* Tab switching — must be on window to work with inline onclick */
   let activeTab = 'teacher';
 
-  function switchTab(tab) {
+  window.switchTab = function(tab) {
     activeTab = tab;
     document.getElementById('grid-teacher').style.display = tab === 'teacher' ? 'grid' : 'none';
     document.getElementById('grid-science').style.display = tab === 'science' ? 'grid' : 'none';
-    document.getElementById('tab-teacher').style.background = tab === 'teacher' ? 'var(--cream)' : 'transparent';
-    document.getElementById('tab-teacher').style.color = tab === 'teacher' ? 'var(--brown)' : 'var(--cream)';
-    document.getElementById('tab-science').style.background = tab === 'science' ? 'var(--cream)' : 'transparent';
-    document.getElementById('tab-science').style.color = tab === 'science' ? 'var(--brown)' : 'var(--cream)';
+    document.getElementById('tab-teacher').classList.toggle('active', tab === 'teacher');
+    document.getElementById('tab-science').classList.toggle('active', tab === 'science');
     applySearch();
-  }
+  };
 
   document.getElementById('search-input').addEventListener('input', applySearch);
 

@@ -24,7 +24,10 @@
       "Read(//Users/katherinedai/Documents/**)",
       "Bash(mv \"/Users/katherinedai/Desktop/CIS/Fire Chicken Productions/leiyu.html\" \"/Users/katherinedai/Desktop/Vibe Coding/雷雨/leiyu.html\")",
       "Bash(mkdir -p \"/Users/katherinedai/Desktop/Vibe Coding/雷雨/.claude\")",
-      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:8799/leiyu.html)"
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:8799/leiyu.html)",
+      "Bash(python3 -m http.server 8765)",
+      "Bash(echo \"PID: $!\")",
+      "Bash(curl -s http://localhost:8765/index.html)"
     ]
   }
 }
