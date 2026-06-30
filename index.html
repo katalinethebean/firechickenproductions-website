@@ -269,6 +269,7 @@
 <script type="module">
   import * as THREE from 'three';
   import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+  import { DRACOLoader } from 'three/addons/loaders/DRACOLoader.js';
 
   (function() {
   const canvas = document.getElementById('mascot-canvas');
@@ -305,7 +306,10 @@
   let rotX = 0, rotY = 0;
   let velX = 0, velY = 0;
 
+  const dracoLoader = new DRACOLoader();
+  dracoLoader.setDecoderPath('https://cdn.jsdelivr.net/npm/three@0.161.0/examples/jsm/libs/draco/');
   const loader = new GLTFLoader();
+  loader.setDRACOLoader(dracoLoader);
   loader.load('mascot.glb', (gltf) => {
     mascot = gltf.scene;
     const box = new THREE.Box3().setFromObject(mascot);
